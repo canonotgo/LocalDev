@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSDP Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+    <script>
+        function refreshPage() {
+            window.location.reload();
+        }
+        setInterval(refreshPage, 3000);
+    </script>
+</head>
+<body>
+    <h1>SSDP Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Source IP</th>
+                <th>Source MAC</th>
+                <th>User-Agent</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in ssdp_data %}
+            <tr>
+                <td>{{ item.src_ip }}</td>
+                <td>{{ item.src_mac }}</td>
+                <td>{{ item.user_agent }}</td>
+                <td>{{ item.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
